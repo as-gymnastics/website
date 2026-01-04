@@ -1,0 +1,119 @@
+import { NextResponse } from 'next/server'
+import { getPayload } from 'payload'
+import config from '@/payload.config'
+
+export async function POST() {
+  try {
+    const payload = await getPayload({ config })
+
+    console.log('Seeding coaches...')
+
+    // Create Stefan Muțiu
+    await payload.create({
+      collection: 'coaches',
+      data: {
+        name: 'Stefan Muțiu',
+        title: 'Antrenor Principal',
+        bio: '20 de ani ca sportiv de performanță • 12 ani de experiență ca antrenor • 9 ani ca mentor al stilului de viață sănătos • Peste 600 de sportivi antrenați',
+        backgroundColor: 'blue',
+        active: true,
+        order: 1,
+      },
+    })
+
+    // Create Amelia Racea
+    await payload.create({
+      collection: 'coaches',
+      data: {
+        name: 'Amelia Racea',
+        title: 'Antrenor Certificat',
+        bio: '15 ani în gimnastica de performanță • Campioană europeană la bârnă • Medaliată la Festivalul Olimpic • 10 ani de experiență ca antrenor',
+        backgroundColor: 'peach',
+        active: true,
+        order: 2,
+      },
+    })
+
+    console.log('Seeding groups...')
+
+    // Create all training groups
+    const groups = [
+      {
+        name: 'Baby Gym I',
+        ageRange: '3-4 ani (fete)',
+        schedule: '2x săptămână\nLuni + Miercuri\nOra: 16:20 - 17:00',
+        price: 320,
+        active: true,
+        order: 1,
+      },
+      {
+        name: 'Baby Gym II',
+        ageRange: '3-4 ani (fete)',
+        schedule: '1x săptămână\nMarți\nOra: 17:00 - 18:00',
+        price: 300,
+        active: true,
+        order: 2,
+      },
+      {
+        name: 'AS Bronze',
+        ageRange: '5-7 ani (fete)',
+        schedule: '1x săptămână\nMiercuri 18:00 - 19:00\nJoi / Vineri 17:00 - 18:00',
+        price: 300,
+        active: true,
+        order: 3,
+      },
+      {
+        name: 'AS Bronze II',
+        ageRange: '8-12 ani (fete)',
+        schedule: '1x săptămână\nMiercuri\nOra: 19:00 - 20:00',
+        price: 300,
+        active: true,
+        order: 4,
+      },
+      {
+        name: 'AS Silver I, II',
+        ageRange: '5-7 ani (fete)',
+        schedule: '2x săptămână\nLuni + Miercuri 17:00 - 18:00\nMarți + Joi 18:00 - 19:00',
+        price: 350,
+        active: true,
+        order: 5,
+      },
+      {
+        name: 'AS Silver III',
+        ageRange: '8-12 ani (fete)',
+        schedule: '2x săptămână\nMarți + Joi 19:00 - 20:00',
+        price: 350,
+        active: true,
+        order: 6,
+      },
+      {
+        name: 'AS Gold',
+        ageRange: '7-10 ani (fete)',
+        schedule: '2x săptămână\nLuni + Vineri\nOra: 18:00 - 20:00',
+        price: 450,
+        active: true,
+        order: 7,
+      },
+      {
+        name: 'Mini Gym',
+        ageRange: '2-4 ani (fete)',
+        schedule: 'Sâmbătă\nOra: 10:00 - 11:00\nPrezența unui părinte este obligatorie',
+        price: 300,
+        active: true,
+        order: 8,
+      },
+    ]
+
+    for (const group of groups) {
+      await payload.create({
+        collection: 'groups',
+        data: group,
+      })
+    }
+
+    return NextResponse.json({ success: true, message: 'Data seeded successfully!' })
+  } catch (error) {
+    console.error('Seeding error:', error)
+    return NextResponse.json({ error: 'Failed to seed data' }, { status: 500 })
+  }
+}

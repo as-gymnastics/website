@@ -92,6 +92,27 @@ const config = {
         success: 'hsl(var(--success))',
         error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
+        // Gymnastics brand colors
+        'gym-blue': {
+          DEFAULT: '#2563EB',
+          light: '#60A5FA',
+          dark: '#1E40AF',
+        },
+        'gym-peach': {
+          DEFAULT: '#FED7AA',
+          light: '#FFEDD5',
+          dark: '#FDBA74',
+        },
+        'gym-green': {
+          DEFAULT: '#10B981',
+          light: '#6EE7B7',
+          dark: '#059669',
+        },
+        'gym-yellow': {
+          DEFAULT: '#FBBF24',
+          light: '#FDE68A',
+          dark: '#F59E0B',
+        },
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
