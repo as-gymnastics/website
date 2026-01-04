@@ -90,7 +90,7 @@ export const Coaches: React.FC<CoachesProps> = ({ coaches }) => {
                 <div className="flex flex-col sm:flex-row">
                   {/* Image */}
                   <div
-                    className={`${bgColor} w-full sm:w-48 h-64 sm:h-auto flex items-center justify-center flex-shrink-0`}
+                    className={`${bgColor} w-full sm:w-48 aspect-[3/4] sm:aspect-auto sm:h-auto flex items-center justify-center flex-shrink-0`}
                   >
                     {coach.image && typeof coach.image === 'object' && coach.image.url ? (
                       <Image
@@ -98,7 +98,7 @@ export const Coaches: React.FC<CoachesProps> = ({ coaches }) => {
                         alt={coach.name}
                         width={192}
                         height={256}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                       />
                     ) : (
                       <div className="text-center text-gray-400">
