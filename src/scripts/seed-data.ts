@@ -7,7 +7,7 @@ export async function seedCoachesAndGroups() {
   console.log('Seeding coaches...')
 
   // Create Stefan Muțiu
-  const stefan = await payload.create({
+  await payload.create({
     collection: 'coaches',
     data: {
       name: 'Stefan Muțiu',
@@ -17,48 +17,66 @@ export async function seedCoachesAndGroups() {
           type: 'root',
           children: [
             {
-              type: 'list',
-              tag: 'ul',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: '20 de ani ca sportiv de performanță',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: '12 ani de experiență ca antrenor',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: '9 ani ca mentor al stilului de viață sănătos',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: 'Peste 600 de sportivi antrenați',
-                    },
-                  ],
+                  type: 'text',
+                  text: '20 de ani ca sportiv de performanță',
+                  version: 1,
                 },
               ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '12 ani de experiență ca antrenor',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '9 ani ca mentor al stilului de viață sănătos',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Peste 600 de sportivi antrenați',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
             },
           ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
         },
       },
       backgroundColor: 'blue',
@@ -70,7 +88,7 @@ export async function seedCoachesAndGroups() {
   console.log('Created Stefan Muțiu')
 
   // Create Amelia Racea
-  const amelia = await payload.create({
+  await payload.create({
     collection: 'coaches',
     data: {
       name: 'Amelia Racea',
@@ -80,48 +98,66 @@ export async function seedCoachesAndGroups() {
           type: 'root',
           children: [
             {
-              type: 'list',
-              tag: 'ul',
+              type: 'paragraph',
               children: [
                 {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: '15 ani în gimnastica de performanță',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: 'Campioană europeană la bârnă',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: 'Medaliată la Festivalul Olimpic',
-                    },
-                  ],
-                },
-                {
-                  type: 'listitem',
-                  children: [
-                    {
-                      type: 'text',
-                      text: '10 ani de experiență ca antrenor',
-                    },
-                  ],
+                  type: 'text',
+                  text: '15 ani în gimnastica de performanță',
+                  version: 1,
                 },
               ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Campioană europeană la bârnă',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Medaliată la Festivalul Olimpic',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '10 ani de experiență ca antrenor',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
             },
           ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
         },
       },
       backgroundColor: 'peach',
@@ -139,22 +175,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'Baby Gym I',
       ageRange: '3-4 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Program dedicat fetițelor de 3-4 ani pentru introducerea în gimnastică.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '2x săptămână\nLuni + Miercuri\nOra: 16:20 - 17:00',
       price: 320,
       active: true,
@@ -163,22 +183,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'Baby Gym II',
       ageRange: '3-4 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Program dedicat fetițelor de 3-4 ani pentru introducerea în gimnastică.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '1x săptămână\nMarți\nOra: 17:00 - 18:00',
       price: 300,
       active: true,
@@ -187,22 +191,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'AS Bronze',
       ageRange: '5-7 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Nivel de bază pentru fetițe de 5-7 ani.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '1x săptămână\nMiercuri 18:00 - 19:00\nJoi / Vineri 17:00 - 18:00',
       price: 300,
       active: true,
@@ -211,22 +199,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'AS Bronze II',
       ageRange: '8-12 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Nivel de bază pentru fetițe de 8-12 ani.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '1x săptămână\nMiercuri\nOra: 19:00 - 20:00',
       price: 300,
       active: true,
@@ -235,22 +207,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'AS Silver I, II',
       ageRange: '5-7 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Nivel intermediar pentru fetițe de 5-7 ani.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '2x săptămână\nLuni + Miercuri 17:00 - 18:00\nMarți + Joi 18:00 - 19:00',
       price: 350,
       active: true,
@@ -259,22 +215,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'AS Silver III',
       ageRange: '8-12 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Nivel intermediar pentru fetițe de 8-12 ani.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '2x săptămână\nMarți + Joi 19:00 - 20:00',
       price: 350,
       active: true,
@@ -283,22 +223,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'AS Gold',
       ageRange: '7-10 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Nivel avansat pentru fetițe de 7-10 ani.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: '2x săptămână\nLuni + Vineri\nOra: 18:00 - 20:00',
       price: 450,
       active: true,
@@ -307,22 +231,6 @@ export async function seedCoachesAndGroups() {
     {
       name: 'Mini Gym',
       ageRange: '2-4 ani (fete)',
-      description: {
-        root: {
-          type: 'root',
-          children: [
-            {
-              type: 'paragraph',
-              children: [
-                {
-                  type: 'text',
-                  text: 'Program pentru cei mai mici, cu prezența obligatorie a unui părinte.',
-                },
-              ],
-            },
-          ],
-        },
-      },
       schedule: 'Sâmbătă\nOra: 10:00 - 11:00\nPrezența unui părinte este obligatorie',
       price: 300,
       active: true,
