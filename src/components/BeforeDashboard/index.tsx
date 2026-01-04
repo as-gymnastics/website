@@ -3,6 +3,7 @@ import { Banner } from '@payloadcms/ui/elements/Banner'
 import React, { useState } from 'react'
 
 import './index.scss'
+import { Link } from 'lucide-react'
 
 const baseClass = 'before-dashboard'
 
@@ -71,19 +72,19 @@ const BeforeDashboard: React.FC = () => {
         </p>
         <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem' }}>
           <li>
-            <a href="/admin/collections/groups" style={{ color: '#2563EB' }}>
+            <Link href="/admin/collections/groups" style={{ color: '#2563EB' }}>
               Manage Training Groups
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/admin/collections/coaches" style={{ color: '#2563EB' }}>
+            <Link href="/admin/collections/coaches" style={{ color: '#2563EB' }}>
               Manage Coaches
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/admin/collections/registrations" style={{ color: '#2563EB' }}>
+            <Link href="/admin/collections/registrations" style={{ color: '#2563EB' }}>
               View Registrations
-            </a>
+            </Link>
           </li>
           <li>
             <a href="/" target="_blank" style={{ color: '#2563EB' }}>
