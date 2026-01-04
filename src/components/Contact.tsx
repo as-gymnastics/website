@@ -89,11 +89,13 @@ export const Contact: React.FC = () => {
 
           {/* Map Placeholder */}
           <div className="bg-gray-200 rounded-2xl overflow-hidden h-[400px] lg:h-full min-h-[400px] flex items-center justify-center">
-            <div className="text-center text-gray-400">
-              <div className="text-6xl mb-4">🗺️</div>
-              <p className="text-lg font-semibold">Hartă Google Maps</p>
-              <p className="text-sm mt-2">Str. Serg. Alexandru Cutieru nr. 25A</p>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.160072247051!2d26.034066576586707!3d44.42987860185233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201ca16e48d17%3A0x8ff7d524118db1ba!2sStrada%20Serg.%20Alexandru%20Cutieru%2025A%2C%20Bucure%C8%99ti%20061422!5e0!3m2!1sen!2sro!4v1767551127906!5m2!1sen!2sro"
+              width="600"
+              height="560"
+              style={{ border: '0' }}
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>

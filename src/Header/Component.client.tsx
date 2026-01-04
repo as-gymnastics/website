@@ -34,8 +34,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🤸</span>
+        <Link href="/" className="flex items-center">
           <span className="text-xl font-bold text-gray-900">AS GYMNASTICS</span>
         </Link>
         <div className="flex items-center gap-6">

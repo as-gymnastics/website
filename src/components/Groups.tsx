@@ -1,10 +1,23 @@
 import React from 'react'
 import type { Group } from '@/payload-types'
-import { Button } from './ui/button'
 
 interface GroupsProps {
   groups: Group[]
-  onRegisterClick: () => void
+  onRegisterClick: (groupId?: number) => void
+}
+
+// Helper function to format day names
+const formatDayName = (day: string): string => {
+  const dayMap: Record<string, string> = {
+    luni: 'Luni',
+    marti: 'Marți',
+    miercuri: 'Miercuri',
+    joi: 'Joi',
+    vineri: 'Vineri',
+    sambata: 'Sâmbătă',
+    duminica: 'Duminică',
+  }
+  return dayMap[day] || day.charAt(0).toUpperCase() + day.slice(1)
 }
 
 export const Groups: React.FC<GroupsProps> = ({ groups, onRegisterClick }) => {
@@ -24,76 +37,70 @@ export const Groups: React.FC<GroupsProps> = ({ groups, onRegisterClick }) => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-3 md:space-y-4 mb-8 md:mb-12">
-          {groups.map((group, index) => (
+        {/* Grid layout - 1 col mobile, 2 cols tablet, 3 cols desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+          {groups.map((group) => (
             <div
               key={group.id}
-              className="group bg-white border-2 border-gray-200 rounded-2xl p-4 md:p-6 hover:border-gym-blue hover:shadow-lg transition-all duration-300 cursor-pointer"
+              onClick={() => onRegisterClick(group.id)}
+              className="group bg-white border-2 border-gray-200 rounded-2xl p-5 hover:border-gym-blue hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div className="flex items-start gap-3 md:gap-6 flex-1">
-                  {/* Icon/Number */}
-                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gym-blue/10 flex items-center justify-center text-gym-blue font-bold text-base md:text-lg group-hover:bg-gym-blue group-hover:text-white transition-colors">
-                    {index + 1}
-                  </div>
+              {/* Header */}
+              <div className="mb-3">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{group.name}</h3>
+                <p className="text-sm text-gray-600">
+                  <span className="font-semibold text-gray-900">{group.ageRange}</span>
+                </p>
+              </div>
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">
-                      {group.name}
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mb-2">
-                      Vârsta: <span className="font-semibold text-gray-900">{group.ageRange}</span>
+              {/* Schedule Info */}
+              {group.scheduleDays &&
+                group.scheduleDays.length > 0 &&
+                group.startTime &&
+                group.endTime && (
+                  <div className="text-xs md:text-sm text-gray-500 space-y-1 mb-4 flex-1">
+                    <p className="font-medium">
+                      {group.scheduleDays.map((day, i) => (
+                        <span key={i}>
+                          {formatDayName(day)}
+                          {i < group.scheduleDays!.length - 1 ? ', ' : ''}
+                        </span>
+                      ))}
                     </p>
-                    {group.schedule && (
-                      <p className="text-xs md:text-sm text-gray-500 whitespace-pre-line">
-                        {group.schedule}
-                      </p>
+                    <p>
+                      {group.startTime} - {group.endTime}
+                    </p>
+                    {group.additionalInfo && (
+                      <p className="mt-2 italic text-gray-600">{group.additionalInfo}</p>
                     )}
                   </div>
-                </div>
+                )}
 
-                {/* Price and Arrow */}
-                <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6">
-                  {group.price && (
-                    <div className="text-right">
-                      <div className="text-xl md:text-2xl font-bold text-gray-700">
-                        {group.price} Lei
-                      </div>
-                      <div className="text-xs md:text-sm text-gray-500">/lună</div>
+              {/* Price and Arrow */}
+              <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                {group.price && (
+                  <div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-700">
+                      {group.price} Lei
                     </div>
-                  )}
-
-                  {/* Arrow */}
-                  <div className="text-gray-400 group-hover:text-gym-blue group-hover:translate-x-1 transition-all">
-                    <svg
-                      className="w-5 h-5 md:w-6 md:h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    <div className="text-xs text-gray-500">/lună</div>
                   </div>
+                )}
+
+                {/* Arrow */}
+                <div className="text-gray-400 group-hover:text-gym-blue group-hover:translate-x-1 transition-all">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button
-            onClick={onRegisterClick}
-            size="lg"
-            className="bg-blue-700 hover:bg-blue-700 text-white px-8 md:px-10 py-5 md:py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
-          >
-            📅 Programează Ședința
-          </Button>
         </div>
       </div>
     </section>

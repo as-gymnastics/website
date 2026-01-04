@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from './ui/button'
 import type { Group } from '@/payload-types'
 
@@ -8,9 +8,15 @@ interface RegistrationFormProps {
   isOpen: boolean
   onClose: () => void
   groups: Group[]
+  selectedGroupId?: number
 }
 
-export const RegistrationForm: React.FC<RegistrationFormProps> = ({ isOpen, onClose, groups }) => {
+export const RegistrationForm: React.FC<RegistrationFormProps> = ({
+  isOpen,
+  onClose,
+  groups,
+  selectedGroupId,
+}) => {
   const [formData, setFormData] = useState({
     parentName: '',
     email: '',
@@ -27,6 +33,13 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ isOpen, onCl
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  // Auto-select group when selectedGroupId changes
+  useEffect(() => {
+    if (selectedGroupId) {
+      setFormData((prev) => ({ ...prev, program: selectedGroupId.toString() }))
+    }
+  }, [selectedGroupId])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,

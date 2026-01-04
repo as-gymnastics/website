@@ -1,13 +1,20 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { Button } from './ui/button'
+import { Media } from './Media'
+import type { Page } from '@/payload-types'
 
 interface HeroProps {
   onRegisterClick: () => void
+  heroData?: Page['hero']
 }
 
-export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onRegisterClick, heroData }) => {
+  // Check if we have media from CMS
+  const hasMediaFromCMS = heroData?.media && typeof heroData.media === 'object'
+
   return (
     <section className="relative bg-gradient-to-br from-blue-50 to-white py-12 md:py-20 lg:py-32">
       <div className="container mx-auto px-4">
@@ -60,12 +67,18 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
           {/* Right Image */}
           <div className="relative order-first lg:order-last">
             <div className="relative bg-gym-peach rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:max-w-none">
-              {/* Placeholder for gymnast image */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-                <div className="text-center text-gray-400">
-                  <img src="/api/media/file/poza_as_gyms.jpg" alt="" />
-                </div>
-              </div>
+              {/* Hero image - use CMS media if available, otherwise fallback */}
+              {hasMediaFromCMS ? (
+                <Media resource={heroData.media} fill imgClassName="object-cover" priority />
+              ) : (
+                <Image
+                  src="/api/media/file/poza_as_gyms.jpg"
+                  alt="AS Gymnastics - Copii antrenându-se gimnastică"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
             </div>
 
             {/* Decorative elements */}

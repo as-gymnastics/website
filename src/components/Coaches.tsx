@@ -121,7 +121,6 @@ export const Coaches: React.FC<CoachesProps> = ({ coaches }) => {
                       <ul className="space-y-2">
                         {bioItems.map((item, index) => (
                           <li key={index} className="flex items-start gap-2 text-gray-600 text-sm">
-                            <span className="text-gym-blue mt-1 flex-shrink-0">•</span>
                             <span>{item}</span>
                           </li>
                         ))}

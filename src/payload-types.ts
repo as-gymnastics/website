@@ -812,9 +812,21 @@ export interface Group {
     [k: string]: unknown;
   } | null;
   /**
-   * Zilele și orele de antrenament
+   * Selectează zilele în care are loc antrenamentul
    */
-  schedule?: string | null;
+  scheduleDays: ('luni' | 'marti' | 'miercuri' | 'joi' | 'vineri' | 'sambata' | 'duminica')[];
+  /**
+   * Format: HH:mm (ex: 16:30)
+   */
+  startTime: string;
+  /**
+   * Format: HH:mm (ex: 18:00)
+   */
+  endTime: string;
+  /**
+   * Ex: "Prezența unui părinte este obligatorie"
+   */
+  additionalInfo?: string | null;
   /**
    * Opțional
    */
@@ -1500,7 +1512,10 @@ export interface GroupsSelect<T extends boolean = true> {
   name?: T;
   ageRange?: T;
   description?: T;
-  schedule?: T;
+  scheduleDays?: T;
+  startTime?: T;
+  endTime?: T;
+  additionalInfo?: T;
   price?: T;
   active?: T;
   order?: T;

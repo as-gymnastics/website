@@ -37,11 +37,66 @@ export const Groups: CollectionConfig = {
       label: 'Descriere',
     },
     {
-      name: 'schedule',
-      type: 'textarea',
-      label: 'Program',
+      name: 'scheduleDays',
+      type: 'select',
+      label: 'Zile Antrenament',
+      required: true,
+      hasMany: true,
+      options: [
+        { label: 'Luni', value: 'luni' },
+        { label: 'Marți', value: 'marti' },
+        { label: 'Miercuri', value: 'miercuri' },
+        { label: 'Joi', value: 'joi' },
+        { label: 'Vineri', value: 'vineri' },
+        { label: 'Sâmbătă', value: 'sambata' },
+        { label: 'Duminică', value: 'duminica' },
+      ],
       admin: {
-        description: 'Zilele și orele de antrenament',
+        description: 'Selectează zilele în care are loc antrenamentul',
+      },
+    },
+    {
+      name: 'startTime',
+      type: 'text',
+      label: 'Ora Început',
+      required: true,
+      admin: {
+        description: 'Format: HH:mm (ex: 16:30)',
+        placeholder: '16:30',
+      },
+      validate: (value: string | null | undefined) => {
+        if (!value) return true
+        const timeRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/
+        if (!timeRegex.test(value)) {
+          return 'Formatul trebuie să fie HH:mm (ex: 16:30)'
+        }
+        return true
+      },
+    },
+    {
+      name: 'endTime',
+      type: 'text',
+      label: 'Ora Sfârșit',
+      required: true,
+      admin: {
+        description: 'Format: HH:mm (ex: 18:00)',
+        placeholder: '18:00',
+      },
+      validate: (value: string | null | undefined) => {
+        if (!value) return true
+        const timeRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/
+        if (!timeRegex.test(value)) {
+          return 'Formatul trebuie să fie HH:mm (ex: 18:00)'
+        }
+        return true
+      },
+    },
+    {
+      name: 'additionalInfo',
+      type: 'textarea',
+      label: 'Informații Adiționale',
+      admin: {
+        description: 'Ex: "Prezența unui părinte este obligatorie"',
       },
     },
     {
