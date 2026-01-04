@@ -95,7 +95,7 @@ export async function POST() {
     for (const group of groups) {
       await payload.create({
         collection: 'groups',
-        data: group,
+        data: group as any,
       })
       console.log(`Created group: ${group.name}`)
     }
