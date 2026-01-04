@@ -13,8 +13,47 @@ export async function POST() {
       collection: 'coaches',
       data: {
         name: 'Stefan Muțiu',
-        title: 'Antrenor Principal',
-        bio: '20 de ani ca sportiv de performanță • 12 ani de experiență ca antrenor • 9 ani ca mentor al stilului de viață sănătos • Peste 600 de sportivi antrenați',
+        title: 'Antrenor',
+        bio: {
+          root: {
+            type: 'root',
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '20 de ani ca sportiv de performanță',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: '12 ani de experiență ca antrenor',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: '9 ani ca mentor al stilului de viață sănătos',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: 'Peste 600 de sportivi antrenați',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
         backgroundColor: 'blue',
         active: true,
         order: 1,
@@ -26,8 +65,47 @@ export async function POST() {
       collection: 'coaches',
       data: {
         name: 'Amelia Racea',
-        title: 'Antrenor Certificat',
-        bio: '15 ani în gimnastica de performanță • Campioană europeană la bârnă • Medaliată la Festivalul Olimpic • 10 ani de experiență ca antrenor',
+        title: 'Antrenor',
+        bio: {
+          root: {
+            type: 'root',
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '15 ani în gimnastica de performanță',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: 'Campionă europeană la bârnă',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: 'Medaliată la Festivalul Olimpic',
+                    version: 1,
+                  },
+                  {
+                    type: 'text',
+                    text: '10 ani de experiență ca antrenor',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
         backgroundColor: 'peach',
         active: true,
         order: 2,
