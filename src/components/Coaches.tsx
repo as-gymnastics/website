@@ -7,10 +7,10 @@ interface CoachesProps {
 }
 
 const bgColorClasses = {
-  peach: 'bg-gym-peach',
-  blue: 'bg-gym-blue/20',
-  green: 'bg-gym-green/20',
-  yellow: 'bg-gym-yellow/20',
+  peach: 'bg-orange-200',
+  blue: 'bg-blue-600/20',
+  green: 'bg-emerald-500/20',
+  yellow: 'bg-amber-400/20',
 }
 
 // Helper function to extract list items from Lexical rich text

@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
             <div className="space-y-6">
               {/* Address */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gym-blue/10 flex items-center justify-center text-gym-blue">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600">
                   📍
                 </div>
                 <div>
@@ -41,7 +41,7 @@ export const Contact: React.FC = () => {
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gym-blue/10 flex items-center justify-center text-gym-blue">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600">
                   📞
                 </div>
                 <div>
@@ -54,7 +54,7 @@ export const Contact: React.FC = () => {
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gym-blue/10 flex items-center justify-center text-gym-blue">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600">
                   ✉️
                 </div>
                 <div>
@@ -70,7 +70,7 @@ export const Contact: React.FC = () => {
 
               {/* Hours */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gym-blue/10 flex items-center justify-center text-gym-blue">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600">
                   🕐
                 </div>
                 <div>

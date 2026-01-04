@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import type { Group } from '@/payload-types'
 
 export async function POST() {
   try {
@@ -8,7 +9,7 @@ export async function POST() {
     console.log('Seeding groups...')
 
     // Create all training groups with new schedule structure
-    const groups = [
+    const groups: Partial<Group>[] = [
       {
         name: 'Baby Gym I',
         ageRange: '3-4 ani (fete)',

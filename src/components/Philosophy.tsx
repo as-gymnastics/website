@@ -6,20 +6,20 @@ const philosophyItems = [
     title: 'Introducție în Exercițiu',
     description:
       'Să învețe să se miște corect și să descopere bucuria exercițiului fizic de la o vârstă fragedă.',
-    color: 'gym-blue',
+    color: 'blue-600',
   },
   {
     icon: '⚡',
     title: 'Vigoare și Energie',
     description:
       'Dezvoltă rezistența și energia necesare pentru a excela în orice activitate sportivă.',
-    color: 'gym-yellow',
+    color: 'amber-400',
   },
   {
     icon: '🎯',
     title: 'Disciplină Sportivă',
     description: 'Construiește caracter prin disciplină, dedicare și munca în echipă.',
-    color: 'gym-green',
+    color: 'emerald-500',
   },
 ]
 

@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick, heroData }) => {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-              Gimnastica este <span className="text-gym-blue">baza tuturor</span> sporturilor
+              Gimnastica este <span className="text-blue-600">baza tuturor</span> sporturilor
             </h1>
 
             <p className="text-base md:text-lg text-gray-600 max-w-xl">
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick, heroData }) => {
 
           {/* Right Image */}
           <div className="relative order-first lg:order-last">
-            <div className="relative bg-gym-peach rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:max-w-none">
+            <div className="relative bg-orange-200 rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:max-w-none">
               {/* Hero image - use CMS media if available, otherwise fallback */}
               {hasMediaFromCMS ? (
                 <Media resource={heroData.media} fill imgClassName="object-cover" priority />
@@ -82,8 +82,8 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick, heroData }) => {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-gym-yellow rounded-full opacity-20 blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 md:w-32 md:h-32 bg-gym-blue rounded-full opacity-20 blur-2xl" />
+            <div className="absolute -top-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-amber-400 rounded-full opacity-20 blur-2xl" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 md:w-32 md:h-32 bg-blue-600 rounded-full opacity-20 blur-2xl" />
           </div>
         </div>
       </div>

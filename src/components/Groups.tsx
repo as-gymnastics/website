@@ -43,7 +43,7 @@ export const Groups: React.FC<GroupsProps> = ({ groups, onRegisterClick }) => {
             <div
               key={group.id}
               onClick={() => onRegisterClick(group.id)}
-              className="group bg-white border-2 border-gray-200 rounded-2xl p-5 hover:border-gym-blue hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
+              className="group bg-white border-2 border-gray-200 rounded-2xl p-5 hover:border-blue-600 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col"
             >
               {/* Header */}
               <div className="mb-3">
@@ -88,7 +88,7 @@ export const Groups: React.FC<GroupsProps> = ({ groups, onRegisterClick }) => {
                 )}
 
                 {/* Arrow */}
-                <div className="text-gray-400 group-hover:text-gym-blue group-hover:translate-x-1 transition-all">
+                <div className="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"

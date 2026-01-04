@@ -158,7 +158,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 required
                 value={formData.parentName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               />
             </div>
 
@@ -174,7 +174,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
               </div>
 
@@ -189,7 +189,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
               </div>
             </div>
@@ -211,7 +211,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   required
                   value={formData.childName}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   max="18"
                   value={formData.childAge}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
               </div>
             </div>
@@ -248,7 +248,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 required
                 value={formData.intention}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               >
                 <option value="">Selectează...</option>
                 <option value="competition">Competiție</option>
@@ -268,7 +268,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 required
                 value={formData.program}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               >
                 <option value="">Selectează grupa...</option>
                 {groups.map((group) => (
@@ -292,7 +292,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 name="firstTrainingDate"
                 value={formData.firstTrainingDate}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               />
             </div>
           </div>
@@ -308,7 +308,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 name="hasHealthProblems"
                 checked={formData.hasHealthProblems}
                 onChange={handleChange}
-                className="mt-1 w-4 h-4 text-gym-blue border-gray-300 rounded focus:ring-gym-blue"
+                className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-600"
               />
               <label htmlFor="hasHealthProblems" className="text-sm text-gray-700">
                 Copilul are probleme de sănătate care ar trebui să le cunoaștem
@@ -329,7 +329,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   rows={3}
                   value={formData.healthProblemsDetails}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   placeholder="Vă rugăm să descrieți..."
                 />
               </div>
@@ -351,7 +351,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
               value={formData.referralSource}
               onChange={handleChange}
               placeholder="Ex: Facebook, Google, Recomandare prieten..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-blue focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
             />
           </div>
 
@@ -360,7 +360,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-gym-blue hover:bg-gym-blue-dark text-white py-3 rounded-lg font-semibold disabled:opacity-50"
+              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50"
             >
               {isSubmitting ? 'Se trimite...' : 'Trimite Înscrierea'}
             </Button>

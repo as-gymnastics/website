@@ -72,21 +72,6 @@ const BeforeDashboard: React.FC = () => {
         </p>
         <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem' }}>
           <li>
-            <Link href="/admin/collections/groups" style={{ color: '#2563EB' }}>
-              Manage Training Groups
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/collections/coaches" style={{ color: '#2563EB' }}>
-              Manage Coaches
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/collections/registrations" style={{ color: '#2563EB' }}>
-              View Registrations
-            </Link>
-          </li>
-          <li>
             <a href="/" target="_blank" style={{ color: '#2563EB' }}>
               View Website
             </a>
