@@ -11,7 +11,7 @@ export async function seedCoachesAndGroups() {
     collection: 'coaches',
     data: {
       name: 'Stefan Muțiu',
-      title: 'Antrenor Principal',
+      title: 'Antrenor',
       bio: {
         root: {
           type: 'root',
@@ -92,7 +92,7 @@ export async function seedCoachesAndGroups() {
     collection: 'coaches',
     data: {
       name: 'Amelia Racea',
-      title: 'Antrenor Certificat',
+      title: 'Antrenor',
       bio: {
         root: {
           type: 'root',
