@@ -1,6 +1,3 @@
-import { getPayload } from 'payload'
-import config from '@/payload.config'
-
 export async function seedCoachesAndGroups() {
   console.log('Seeding coaches...')
   console.log('Seeding completed!')

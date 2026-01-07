@@ -44,9 +44,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
-  openGraph: mergeOpenGraph(),
+  title: {
+    default: 'AS Gymnastics - Gimnastică pentru copii',
+    template: '%s | AS Gymnastics',
+  },
+  description:
+    'AS Gymnastics - Gimnastică artistică și recreativă pentru copii în București. Dezvoltăm încredere, disciplină și curaj.',
+  openGraph: mergeOpenGraph({
+    title: 'AS Gymnastics - Gimnastică pentru copii',
+    siteName: 'AS Gymnastics',
+  }),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@asgymnastics',
   },
 }
