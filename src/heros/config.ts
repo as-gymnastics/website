@@ -59,6 +59,39 @@ export const hero: Field = {
       },
     }),
     {
+      name: 'headlineBlack',
+      type: 'text',
+      label: 'Headline (Black Text)',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
+    },
+    {
+      name: 'headlineBlue',
+      type: 'text',
+      label: 'Headline (Blue Text)',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      label: 'Description',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
+    },
+    {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Hero Logo',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
+    },
+    {
       name: 'media',
       type: 'upload',
       admin: {
@@ -66,6 +99,15 @@ export const hero: Field = {
       },
       relationTo: 'media',
       required: true,
+    },
+    {
+      name: 'scheduleImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Schedule Image',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
     },
   ],
   label: false,

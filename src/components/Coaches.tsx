@@ -4,6 +4,10 @@ import type { Coach } from '@/payload-types'
 
 interface CoachesProps {
   coaches: Coach[]
+  intro?: {
+    title?: string | null
+    description?: string | null
+  } | null
 }
 
 const bgColorClasses = {
@@ -57,7 +61,7 @@ function extractListItemsFromLexical(bio: Coach['bio']): string[] {
   return items
 }
 
-export const Coaches: React.FC<CoachesProps> = ({ coaches }) => {
+export const Coaches: React.FC<CoachesProps> = ({ coaches, intro }) => {
   if (!coaches || coaches.length === 0) {
     return null
   }
@@ -67,11 +71,11 @@ export const Coaches: React.FC<CoachesProps> = ({ coaches }) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Antrenează-te cu Campioni
+            {intro?.title || 'Antrenează-te cu Campioni'}
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Echipa noastră de antrenori certificați și experimentați este dedicată succesului
-            fiecărui copil
+            {intro?.description ||
+              'Echipa noastră de antrenori certificați și experimentați este dedicată succesului fiecărui copil'}
           </p>
         </div>
 

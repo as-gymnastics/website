@@ -204,9 +204,23 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
+    headlineBlack?: string | null;
+    headlineBlue?: string | null;
+    description?: string | null;
+    logo?: (number | null) | Media;
     media?: (number | null) | Media;
+    scheduleImage?: (number | null) | Media;
   };
   layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  philosophy?: {
+    content?: string | null;
+    quote?: string | null;
+    showPhilosophy?: boolean | null;
+  };
+  coachesSection: {
+    title: string;
+    description?: string | null;
+  };
   meta?: {
     title?: string | null;
     /**
@@ -793,7 +807,11 @@ export interface Group {
   id: number;
   name: string;
   /**
-   * Ex: "2-3 ani", "4-6 ani"
+   * Ex: "fete", "băieți" sau "mixt"
+   */
+  gender?: string | null;
+  /**
+   * Ex: "2-3", "4-6"
    */
   ageRange: string;
   description?: {
@@ -1227,7 +1245,12 @@ export interface PagesSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+        headlineBlack?: T;
+        headlineBlue?: T;
+        description?: T;
+        logo?: T;
         media?: T;
+        scheduleImage?: T;
       };
   layout?:
     | T
@@ -1237,6 +1260,19 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+      };
+  philosophy?:
+    | T
+    | {
+        content?: T;
+        quote?: T;
+        showPhilosophy?: T;
+      };
+  coachesSection?:
+    | T
+    | {
+        title?: T;
+        description?: T;
       };
   meta?:
     | T
@@ -1510,6 +1546,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface GroupsSelect<T extends boolean = true> {
   name?: T;
+  gender?: T;
   ageRange?: T;
   description?: T;
   scheduleDays?: T;

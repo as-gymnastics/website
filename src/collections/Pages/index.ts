@@ -82,6 +82,51 @@ export const Pages: CollectionConfig<'pages'> = {
           label: 'Content',
         },
         {
+          name: 'philosophy',
+          label: 'Philosophy',
+          fields: [
+            {
+              name: 'content',
+              type: 'textarea',
+              label: 'Main Content',
+              defaultValue:
+                'Antrenamentele noastre sunt concepute pentru a aduce un plus de valoare fiecărui copil.\n\nForța fizică, coordonarea și flexibilitatea se dezvoltă vizibil încă de la primele antrenamente, iar ulterior echilibrul și îndemânarea completează ceea ce noi numim un corp elegant.',
+            },
+            {
+              name: 'quote',
+              type: 'text',
+              label: 'Quote',
+              defaultValue: 'Nu ai cum sa reușești daca nu încerci',
+            },
+            {
+              name: 'showPhilosophy',
+              type: 'checkbox',
+              label: 'Show Philosophy Section',
+              defaultValue: true,
+            },
+          ],
+        },
+        {
+          name: 'coachesSection',
+          label: 'Coaches Section',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              label: 'Section Title',
+              defaultValue: 'Antrenează-te cu Campioni',
+              required: true,
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              label: 'Section Description',
+              defaultValue:
+                'Echipa noastră de antrenori certificați și experimentați este dedicată succesului fiecărui copil',
+            },
+          ],
+        },
+        {
           name: 'meta',
           label: 'SEO',
           fields: [

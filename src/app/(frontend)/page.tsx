@@ -51,6 +51,8 @@ export default async function HomePage() {
         coaches={coachesData.docs as Coach[]}
         groups={groupsData.docs as Group[]}
         hero={homePage?.hero}
+        philosophy={homePage?.philosophy}
+        coachesSection={homePage?.coachesSection}
       />
     </main>
   )

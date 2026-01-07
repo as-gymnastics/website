@@ -23,12 +23,20 @@ export const Groups: CollectionConfig = {
       label: 'Nume Grupă',
     },
     {
+      name: 'gender',
+      type: 'text',
+      label: 'Gen',
+      admin: {
+        description: 'Ex: "fete", "băieți" sau "mixt"',
+      },
+    },
+    {
       name: 'ageRange',
       type: 'text',
       required: true,
       label: 'Vârstă',
       admin: {
-        description: 'Ex: "2-3 ani", "4-6 ani"',
+        description: 'Ex: "2-3", "4-6"',
       },
     },
     {

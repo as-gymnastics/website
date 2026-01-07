@@ -1,69 +1,61 @@
+import { Quote } from 'lucide-react'
 import React from 'react'
 
-const philosophyItems = [
-  {
-    icon: '🏃',
-    title: 'Introducție în Exercițiu',
-    description:
-      'Să învețe să se miște corect și să descopere bucuria exercițiului fizic de la o vârstă fragedă.',
-    color: 'blue-600',
-  },
-  {
-    icon: '⚡',
-    title: 'Vigoare și Energie',
-    description:
-      'Dezvoltă rezistența și energia necesare pentru a excela în orice activitate sportivă.',
-    color: 'amber-400',
-  },
-  {
-    icon: '🎯',
-    title: 'Disciplină Sportivă',
-    description: 'Construiește caracter prin disciplină, dedicare și munca în echipă.',
-    color: 'emerald-500',
-  },
-]
+interface PhilosophyProps {
+  philosophyData?: {
+    content?: string | null
+    quote?: string | null
+    showPhilosophy?: boolean | null
+  } | null
+}
 
-export const Philosophy: React.FC = () => {
+export const Philosophy: React.FC<PhilosophyProps> = ({ philosophyData }) => {
+  // If explicitly hidden in CMS, don't render
+  if (philosophyData?.showPhilosophy === false) {
+    return null
+  }
+
+  const content =
+    philosophyData?.content ||
+    'Antrenamentele noastre sunt concepute pentru a aduce un plus de valoare fiecărui copil.\n\nForța fizică, coordonarea și flexibilitatea se dezvoltă vizibil încă de la primele antrenamente, iar ulterior echilibrul și îndemânarea completează ceea ce noi numim un corp elegant.'
+
+  const quote = philosophyData?.quote || 'Nu ai cum sa reușești daca nu încerci'
+
   return (
-    <section className="py-12 md:py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Filozofia Noastră
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            La AS Gymnastics, credem că gimnastica este mai mult decât un sport - este o fundație
-            pentru viață
-          </p>
-        </div>
+    <section className="relative py-24 md:py-36 overflow-hidden bg-white">
+      {/* Background Decor */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px] opacity-60 -z-10 pointer-events-none" />
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {philosophyItems.map((item, index) => (
-            <div
-              key={index}
-              className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-transparent hover:-translate-y-2"
-            >
-              {/* Icon */}
-              <div
-                className={`inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-${item.color}/10 text-3xl md:text-4xl mb-4 md:mb-6 group-hover:scale-110 transition-transform`}
-              >
-                {item.icon}
-              </div>
+      <div className="container mx-auto px-4 relative">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Section Title */}
+          <div className="mb-8 md:mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Filozofia Noastră</h2>
+          </div>
 
-              {/* Content */}
-              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-                {item.title}
+          {/* Main Philosophy Content */}
+          <div className="mb-16 md:mb-20 relative">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed whitespace-pre-wrap">
+              {content}
+            </p>
+          </div>
+
+          {/* Motto Section */}
+          <div className="relative py-8">
+            {/* Decorative divider */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50" />
+
+            <div className="relative inline-block">
+              <Quote className="absolute -top-6 -left-6 w-8 h-8 text-blue-100 rotate-180 fill-current" />
+              <h3 className="text-2xl md:text-4xl font-serif italic text-gray-800 px-6 leading-tight">
+                &ldquo;{quote}&rdquo;
               </h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                {item.description}
-              </p>
-
-              {/* Decorative gradient */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br from-${item.color}/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10`}
-              />
+              <Quote className="absolute -bottom-6 -right-6 w-8 h-8 text-blue-100 fill-current" />
             </div>
-          ))}
+
+            {/* Decorative divider */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50" />
+          </div>
         </div>
       </div>
     </section>
