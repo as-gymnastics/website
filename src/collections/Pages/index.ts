@@ -68,20 +68,6 @@ export const Pages: CollectionConfig<'pages'> = {
           label: 'Hero',
         },
         {
-          fields: [
-            {
-              name: 'layout',
-              type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
-              required: true,
-              admin: {
-                initCollapsed: true,
-              },
-            },
-          ],
-          label: 'Content',
-        },
-        {
           name: 'philosophy',
           label: 'Philosophy',
           fields: [
