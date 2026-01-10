@@ -8,6 +8,7 @@
       "name": "Next.js: debug full stack",
       "type": "node",
       "request": "launch",
+      "runtimeExecutable": "/home/stefan/.nvm/versions/node/v24.12.0/bin/node",
       "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
       "runtimeArgs": ["--inspect"],
       "skipFiles": ["<node_internals>/**"],

@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
+import { sendWhatsAppMessage } from '../utilities/whatsapp'
 
 export const Registrations: CollectionConfig = {
   slug: 'registrations',
@@ -143,5 +144,46 @@ export const Registrations: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [
+      async ({ doc, operation, req }) => {
+        if (operation === 'create') {
+          // Send Email
+          try {
+            await req.payload.sendEmail({
+              to: doc.email,
+              subject: 'Bine ai venit la AS Gymnastics!',
+              html: `
+                <h1>Bună ${doc.parentName},</h1>
+                <p>Îți mulțumim pentru înregistrarea la AS Gymnastics.</p>
+                <p>Am primit solicitarea ta pentru ${doc.childName} și te vom contacta în curând pentru confirmare.</p>
+                <br>
+                <p>Cu drag,</p>
+                <p>Echipa AS Gymnastics</p>
+              `,
+            })
+          } catch (err) {
+            req.payload.logger.error({ err }, 'Error sending registration email')
+          }
+
+          // Send WhatsApp
+          try {
+            const message = `Bun venit la AS-Gymnastics!
+
+Ne bucurăm enorm că v-ați alăturat comunității noastre! Suntem gata de acțiune și abia așteptăm prima sesiune de antrenament.
+
+Pentru ca totul să meargă perfect, vă rugăm să accesați link-ul de mai jos. Acolo veți găsi toate detaliile despre prima vizită: ce trebuie să aveți în rucsac, pașii de urmat și programul complet.
+
+🔗 Vezi detalii prima vizită: https://as-gymnastics.ro/informatii-prim-antrenament
+
+Ne vedem la antrenament!`
+            await sendWhatsAppMessage(doc.phone, message)
+          } catch (err) {
+            req.payload.logger.error({ err }, 'Error sending registration WhatsApp message')
+          }
+        }
+      },
+    ],
+  },
   timestamps: true,
 }

@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
         childName: body.childName,
         childAge: parseInt(body.childAge),
         intention: body.intention,
-        program: body.program,
+        program: parseInt(body.program),
         hasHealthProblems: body.hasHealthProblems || false,
         healthProblemsDetails: body.healthProblemsDetails || '',
         referralSource: body.referralSource || '',

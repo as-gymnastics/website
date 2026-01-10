@@ -17,6 +17,7 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,6 +35,7 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+
     user: Users.slug,
     livePreview: {
       breakpoints: [
@@ -58,6 +60,11 @@ export default buildConfig({
       ],
     },
   },
+  email: resendAdapter({
+    apiKey: process.env.RESEND_API_KEY || '',
+    defaultFromAddress: 'contact@as-gymnastics.ro',
+    defaultFromName: 'AS Gymnastics',
+  }),
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: vercelPostgresAdapter({
