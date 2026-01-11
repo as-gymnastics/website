@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
+import { addSubscriberToGroup } from '../utilities/mailerlite'
 import { sendWhatsAppMessage } from '../utilities/whatsapp'
 
 export const Registrations: CollectionConfig = {
@@ -149,21 +150,17 @@ export const Registrations: CollectionConfig = {
       async ({ doc, operation, req }) => {
         if (operation === 'create') {
           // Send Email
+          // Add to MailerLite Group (triggers automation)
           try {
-            await req.payload.sendEmail({
-              to: doc.email,
-              subject: 'Bine ai venit la AS Gymnastics!',
-              html: `
-                <h1>Bună ${doc.parentName},</h1>
-                <p>Îți mulțumim pentru înregistrarea la AS Gymnastics.</p>
-                <p>Am primit solicitarea ta pentru ${doc.childName} și te vom contacta în curând pentru confirmare.</p>
-                <br>
-                <p>Cu drag,</p>
-                <p>Echipa AS Gymnastics</p>
-              `,
-            })
+            if (process.env.MAILERLITE_GROUP_ID) {
+              await addSubscriberToGroup(doc.email, doc.parentName, process.env.MAILERLITE_GROUP_ID)
+            } else {
+              req.payload.logger.warn(
+                'MAILERLITE_GROUP_ID not set, skipping MailerLite subscription',
+              )
+            }
           } catch (err) {
-            req.payload.logger.error({ err }, 'Error sending registration email')
+            req.payload.logger.error({ err }, 'Error adding subscriber to MailerLite')
           }
 
           // Send WhatsApp
