@@ -11,7 +11,7 @@ export function LandingPage({ groups }: { groups: Group[] }) {
   return (
     <>
       <div
-        className="absolute top-[40rem] right-auto z-10 md:top-[50rem] md:right-auto"
+        className="absolute top-[40rem] right-auto z-10 md:top-[90vh] md:right-auto"
         onClick={() => setIsRegistrationOpen(true)}
       >
         <button className="bg-[#7159a5] text-white px-16 py-2 md:px-8 md:py-3 rounded-xl font-bold uppercase tracking-wider shadow-lg transition-colors pointer-events-auto cursor-pointer">
