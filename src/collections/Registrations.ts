@@ -153,7 +153,14 @@ export const Registrations: CollectionConfig = {
           // Add to MailerLite Group (triggers automation)
           try {
             if (process.env.MAILERLITE_GROUP_ID) {
-              await addSubscriberToGroup(doc.email, doc.parentName, process.env.MAILERLITE_GROUP_ID)
+              await addSubscriberToGroup(
+                doc.email,
+                doc.parentName,
+                doc.childName,
+                doc.phone,
+                doc.firstTrainingDate,
+                process.env.MAILERLITE_GROUP_ID,
+              )
             } else {
               req.payload.logger.warn(
                 'MAILERLITE_GROUP_ID not set, skipping MailerLite subscription',
