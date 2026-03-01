@@ -21,6 +21,7 @@ export const addSubscriberToGroup = async (
       company: firstTrainingDate ? firstTrainingDate.split('T')[0] : '',
     },
     groups: [groupID],
+    status: 'active',
   }
 
   try {
