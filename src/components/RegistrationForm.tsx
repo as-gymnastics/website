@@ -251,10 +251,10 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               >
                 <option value="">Selectează...</option>
-                <option value="competition">Competiție</option>
-                <option value="recreation">Recreere</option>
-                <option value="fitness">Fitness</option>
-                <option value="other">Altele</option>
+                <option value="fitness">Mișcare</option>
+                <option value="other">Disciplină și încredere</option>
+                <option value="recreation">Pasiune</option>
+                <option value="competition">Performanță</option>
               </select>
             </div>
 
